@@ -28,11 +28,9 @@ public class AgendaController {
         final AgendaEntity result = agendaService.saveAgenda(agendaEntity);
         return agendaService.mapToDTO(result);
     }
-    @PutMapping("/{id}")
-    public AgendaDTO updateAgenda(@RequestBody AgendaDTO request){
-       final AgendaEntity agendaEntity = agendaService.mapToEntity(request);
-       final AgendaEntity result = agendaService.updateAgenda(agendaEntity);
-        return agendaService.mapToDTO(result);
+    @PutMapping("/update/{id}")
+    public AgendaDTO updateObat(@PathVariable Long id, @RequestBody AgendaDTO agendaDTO) {
+        return agendaService.updateAgenda(id, agendaDTO);
     }
     @DeleteMapping("/{id}")
     public void deleteAgenda(@PathVariable("id")Long id){
