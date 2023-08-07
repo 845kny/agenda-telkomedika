@@ -10,7 +10,7 @@ public interface AgendaService {
     List<AgendaEntity> findAllAgenda();
     Optional<AgendaEntity> findById(Long id);
     AgendaEntity saveAgenda(AgendaEntity agendaEntity);
-    AgendaEntity updateAgenda (AgendaEntity agendaEntity);
+    AgendaDTO updateAgenda(Long id, AgendaDTO agendaDTO);
     AgendaDTO mapToDTO(AgendaEntity agendaEntity);
     AgendaEntity mapToEntity(AgendaDTO agendaDTO);
     void deleteAgenda (Long id);
