@@ -9,7 +9,6 @@ public class AgendaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    private Long version;
-    @JsonIgnore
     @Column(name = "id")
     private Long id;
     @Column(name = "judul")
