@@ -35,7 +35,7 @@ public class AgendaServiceImpl implements AgendaService {
 
     @Override
     public AgendaDTO updateAgenda(Long id, AgendaDTO agendaDTO) {
-        Agenda agenda = agendaRepository.findById(id).orElse(null);
+        AgendaEntity agenda = agendaRepository.findById(id).orElse(null);
 
         if (agenda != null) {
 //            modelMapper.map(transactionDTO, transaction);
@@ -47,8 +47,8 @@ public class AgendaServiceImpl implements AgendaService {
                 agenda.setWaktu(agendaDTO.waktu() );
             }
 
-            Agenda savedAgenda = agendaRepository.save(agenda);
-            return modelMapper.map(savedAgenda, AgendaDTO.class);
+            AgendaEntity savedAgenda = agendaRepository.save(agenda);
+            return mapToDTO(savedAgenda);
         }
         return null;
     }
