@@ -39,5 +39,4 @@ public class AgendaController {
         agendaService.deleteAgenda(id);
     }
 
-
 }
