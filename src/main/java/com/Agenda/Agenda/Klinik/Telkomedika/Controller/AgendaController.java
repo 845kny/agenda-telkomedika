@@ -28,7 +28,7 @@ public class AgendaController {
         final AgendaEntity result = agendaService.saveAgenda(agendaEntity);
         return agendaService.mapToDTO(result);
     }
-    @PutMapping
+    @PutMapping("/{id}")
     public AgendaDTO updateAgenda(@RequestBody AgendaDTO request){
        final AgendaEntity agendaEntity = agendaService.mapToEntity(request);
        final AgendaEntity result = agendaService.updateAgenda(agendaEntity);
