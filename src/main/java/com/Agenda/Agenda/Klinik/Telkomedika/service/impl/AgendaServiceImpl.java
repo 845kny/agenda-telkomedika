@@ -34,17 +34,23 @@ public class AgendaServiceImpl implements AgendaService {
     }
 
     @Override
-    public AgendaEntity updateAgenda(AgendaEntity agendaEntity) {
-        AgendaEntity entity = agendaRepository.findById(4L).orElse(null);
-        if(agendaEntity.getJudul() != null){
-            entity.setJudul(agendaEntity.getJudul());
-        }if(agendaEntity.getDeskripsi() != null){
-            entity.setDeskripsi(agendaEntity.getDeskripsi());
-        }if(agendaEntity.getWaktu() != null){
-            entity.setWaktu(agendaEntity.getWaktu());
-        }
+    public AgendaDTO updateAgenda(Long id, AgendaDTO agendaDTO) {
+        Agenda agenda = agendaRepository.findById(id).orElse(null);
 
-        return agendaRepository.save(entity);
+        if (agenda != null) {
+//            modelMapper.map(transactionDTO, transaction);
+            if(agendaDTO.judul() != null) {
+                agenda.setJudul(agendaDTO.judul());
+            } if(agendaDTO.deskripsi() != null) {
+                agenda.setDeskripsi(agendaDTO.deskripsi() );
+            } if(agendaDTO.waktu() != null) {
+                agenda.setWaktu(agendaDTO.waktu() );
+            }
+
+            Agenda savedAgenda = agendaRepository.save(agenda);
+            return modelMapper.map(savedAgenda, AgendaDTO.class);
+        }
+        return null;
     }
 
     @Override
