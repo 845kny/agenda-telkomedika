@@ -32,7 +32,7 @@ public class AgendaController {
     public AgendaDTO updateObat(@PathVariable Long id, @RequestBody AgendaDTO agendaDTO) {
         return agendaService.updateAgenda(id, agendaDTO);
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteAgenda(@PathVariable("id")Long id){
         agendaService.deleteAgenda(id);
     }
